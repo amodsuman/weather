@@ -58,7 +58,7 @@ body {
 #mainDayDate {
     font-size: 32px;
     font-weight: 200;
-    margin: -20px 0 32px 0;
+    margin: -20px 0 0 0;
     color: rgb(214, 210, 203);
 }
 
@@ -66,8 +66,26 @@ body {
     display: flex;
     justify-content: start;
     align-items: end;
-    gap: 16px; 
-    margin-bottom: 40px;
+    gap: 16px;
+}
+
+.mainBox {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 0px;
+}
+
+.image {
+    width: 150px;
+    height: auto;
+    margin-left: -20px;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
 }
 
 .temp #mainTemp {
@@ -86,6 +104,14 @@ body {
     margin-bottom: 10px;
 }
 
+#description {
+    margin: -48px 0 40px 150px;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 200;
+    color: rgb(214, 210, 203);
+}
+
 .mainCard {
     background-color: rgba(34, 34, 34, 0.582);
     border-radius: 12px;
@@ -101,7 +127,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px; 
+    gap: 16px;
 }
 
 #mainTimeZone {
@@ -124,7 +150,7 @@ body {
     left: 0;
     background-color: rgba(3, 3, 3, 0.582);
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-    padding: 20px 0;
+    padding: 32px 0;
 }
 
 .detail .container {
@@ -178,8 +204,8 @@ body {
     height: auto;
 }
 
-.cardDayTemp,
-.cardNightTemp {
+.cardMinTemp,
+.cardMaxTemp {
     font-size: 14px;
     font-weight: 300;
     color: rgb(160, 157, 157);
@@ -188,8 +214,8 @@ body {
     white-space: nowrap;
 }
 
-.cardDayTemp span:nth-child(2),
-.cardNightTemp span:nth-child(2) {
+.cardMinTemp span:nth-child(2),
+.cardMaxTemp span:nth-child(2) {
     padding-left: 4px;
 }
 
@@ -217,8 +243,8 @@ body {
     height: 130px;
 }
 
-.card:first-child .cardDayTemp,
-.card:first-child .cardNightTemp {
+.card:first-child .cardMinTemp,
+.card:first-child .cardMaxTemp {
     font-size: 18px;
     font-weight: 400;
     color: white;
@@ -227,3 +253,7 @@ body {
     white-space: nowrap;
 }
 
+.card:first-child .cardMinTemp span:nth-child(2),
+.card:first-child .cardMaxTemp span:nth-child(2) {
+    padding-left: 6px;
+}

@@ -4,14 +4,15 @@ const dayDate = document.getElementById("mainDayDate");
 const timeZone = document.getElementById("mainTimeZone");
 const timeZoneLocation = document.getElementById("mainLocation");
 
+const image = document.getElementById("imageBox");
 const temp = document.getElementById("mainTemp");
 const feelsLike = document.getElementById("mainFeelsLikeTemp");
-
-const humoidity = document.getElementById("mainHumidity");
+const weatherDescription = document.getElementById("description");
+const maxT = document.getElementById("maxTemp");
+const minT = document.getElementById("minTemp");
+const humidity = document.getElementById("mainHumidity");
 const pressure = document.getElementById("mainPressuer");
 const wind = document.getElementById("mainWindSpeed");
-const sunrise = document.getElementById("mainSunrise");
-const sunset = document.getElementById("mainSunset");
 
 const days = [
   "Sunday",
@@ -64,17 +65,33 @@ setInterval(() => {
     days[day] + "," + " " + date + " " + months[month] + " " + "-" + " " + year;
 }, 1000);
 
-getApiData();
 function getApiData() {
   navigator.geolocation.getCurrentPosition((success) => {
     let { latitude, longitude } = success.coords;
 
+    //set latitude and longitude
+    timeZoneLocation.innerHTML = latitude + "N" + " " + longitude + "E";
+
+    let cnt = 5;
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`
+      // `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&cnt=${cnt}&appid=${API_KEY}&units=metric`
     )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        temp.innerHTML = data.main.temp + "°C";
+        feelsLike.innerHTML = data.main.feels_like + "°C";
+        maxT.innerHTML = data.main.temp_max + "°C";
+        minT.innerHTML = data.main.temp_min + "°C";
+        humidity.innerHTML = data.main.humidity + "%";
+        pressure.innerHTML = data.main.pressure + "hPa";
+        wind.innerHTML = data.wind.speed + "m/s" + " " + data.wind.deg + "°";
+        timeZone.innerHTML = data.name + "," + " " + data.sys.country;
+        image.innerHTML = `<img src="http://openweathermap.org/img/wn//${data.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">`;
+        weatherDescription.innerHTML = data.weather[0].description;
       });
   });
 }
+
+getApiData();
