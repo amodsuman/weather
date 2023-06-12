@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    color:  white;
+    background-image: url(images/sunny.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Poppins';
+}
+
+.container {
+    width: 100%;
+    max-width: 1680px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.288);
+}
+
+.main {
+    position: relative;
+    padding-top: 100px;
+}
+
+.main .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 80px;
+}
+
+#mainTime {
+    font-size: 72px;
+    font-weight: 200;
+}
+
+#mainTime span {
+    font-size: 20px;
+    padding-left: 40px;
+}
+
+#mainDayDate {
+    font-size: 32px;
+    font-weight: 200;
+    margin: -20px 0 32px 0;
+    color: rgb(214, 210, 203);
+}
+
+.temp {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    gap: 16px; 
+    margin-bottom: 40px;
+}
+
+.temp #mainTemp {
+    font-size: 68px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.temp .mainFeelsLikeTemp {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    background-color: rgba(34, 34, 34, 0.582);
+    padding: 8px 12px;
+    border-radius: 24px;
+    margin-bottom: 10px;
+}
+
+.mainCard {
+    background-color: rgba(34, 34, 34, 0.582);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgb(160, 157, 157);
+    color: rgb(160, 157, 157);
+    font-size: 18px;
+    font-weight: 300;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.mainCardDetail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px; 
+}
+
+#mainTimeZone {
+    font-size: 40px;
+    font-weight: 300;
+    color: rgb(214, 210, 203);
+    text-align: right;
+}
+
+#mainLocation {
+    font-size: 14px;
+    font-weight: 200;
+    text-align: right;
+}
+
+.detail {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(3, 3, 3, 0.582);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    padding: 20px 0;
+}
+
+.detail .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid rgb(160, 157, 157);
+    height: fit-content;
+    padding: 20px;
+    border-radius: 12px;
+    width: fit-content;
+}
+
+.cardDay {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    background-color: rgb(34, 34, 34);
+    padding: 8px 12px;
+    border-radius: 24px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.cardIconAndTemp {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.cardIcon {
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardIcon img {
+    width: 100%;
+    height: auto;
+}
+
+.cardDayTemp,
+.cardNightTemp {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgb(160, 157, 157);
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.cardDayTemp span:nth-child(2),
+.cardNightTemp span:nth-child(2) {
+    padding-left: 4px;
+}
+
+/* For Present Day */
+.card:first-child {
+    width: 100%;
+    height: 300px;
+}
+
+.card:first-child .cardIconAndTemp {
+    flex-direction: row;
+    padding-top: 0;
+}
+
+.card:first-child .cardDetail {
+    width: 100%;
+    height: calc(100% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card:first-child .cardIcon {
+    width: 130px;
+    height: 130px;
+}
+
+.card:first-child .cardDayTemp,
+.card:first-child .cardNightTemp {
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+}
+
